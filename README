@@ -1,0 +1,16 @@
+% gcc main.c                 
+% cat test.txt               
+FLI_S     (31-27, 0b11110), (26-25, 0b00), (24-20, 1), (14-12, 0),     (6-0, 0x53)
+FMINI_S   (31-27, 0b00101), (26-25, 0b00),             (14-12, 0b010), (6-0, 0x53)
+FLTQ_H    (31-27, 0b10100), (26-25, 0b10),             (14-12, 0b101), (6-0, 0x53)
+% ./a.out --encoding        
+#define MATCH_FLI_S 0xf0100053
+#define MASK_FLI_S 0xfff0707f
+#define MATCH_FMINI_S 0x28002053
+#define MASK_FMINI_S 0xfe00707f
+#define MATCH_FLTQ_H 0xa4005053
+#define MASK_FLTQ_H 0xfe00707f
+% ./a.out --declare 
+DECLARE_INSN(fli_s, MATCH_FLI_S, MASK_FLI_S)
+DECLARE_INSN(fmini_s, MATCH_FMINI_S, MASK_FMINI_S)
+DECLARE_INSN(fltq_h, MATCH_FLTQ_H, MASK_FLTQ_H)
