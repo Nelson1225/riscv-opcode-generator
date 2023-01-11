@@ -1,3 +1,4 @@
+* Commands,
 % gcc main.c                 
 % cat test.txt               
 FLI_S     (31-27, 0b11110), (26-25, 0b00), (24-20, 1), (14-12, 0),     (6-0, 0x53)
@@ -14,3 +15,16 @@ FLTQ_H    (31-27, 0b10100), (26-25, 0b10),             (14-12, 0b101), (6-0, 0x5
 DECLARE_INSN(fli_s, MATCH_FLI_S, MASK_FLI_S)
 DECLARE_INSN(fmini_s, MATCH_FMINI_S, MASK_FMINI_S)
 DECLARE_INSN(fltq_h, MATCH_FLTQ_H, MASK_FLTQ_H)
+
+* Formats of test.txt,
+- <Inst Name>  (<start-bit>-<end-bit>, <encodings>), ... fields ...
+- Inst name must be upper case.
+- Encodings support binary, hex and dec formats.
+- Encodings without any overflow checks.
+- If the field only have one bit, then use, (25-25, 0b1).
+- Use spaces rather than tabs.
+
+* TODOs,
+- Improve the test.txt, remove such inconvenient limitations.
+- Auto generate opcode tables.
+- ...
